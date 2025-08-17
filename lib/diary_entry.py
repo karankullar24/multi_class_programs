@@ -37,8 +37,9 @@ class DiaryEntry:
         # skipping what has already been read, until the contents is fully read.
         # The next call after that it should restart from the beginning.
         chunk_length = wpm * minutes
-        words = self.contents.split()
 
+        words = self.contents.split()
+        
         start = self.reading_index
         end = start + chunk_length
         chunk = words[start:end]

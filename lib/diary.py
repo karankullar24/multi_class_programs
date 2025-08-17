@@ -37,6 +37,9 @@ class Diary:
         # Returns:
         #   An integer representing an estimate of the reading time in minutes
         #   if the user were to read all entries in the diary.
+        if self.all() == []:
+            raise Exception("No entries")
+
         total_reading_time = 0
         for entry in self.all():
             exceprt_time = entry.reading_time(wpm)
@@ -53,6 +56,10 @@ class Diary:
         #   An instance of DiaryEntry representing the entry that is closest to,
         #   but not over, the length that the user could read in the minutes
         #   they have available given their reading speed.
+        
+        if self.all() == []:
+            raise Exception("No entries")
+        
         total_words_readable = wpm * minutes
         entry_words_dict = {entry: entry.count_words() for entry in self.all() if entry.count_words() <= total_words_readable}
         try:
