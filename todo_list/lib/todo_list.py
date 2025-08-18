@@ -14,20 +14,20 @@ class TodoList:
         if not isinstance(todo,Todo):
             raise Exception("Todo List items must be Todo objects")
         for todo_object in self.todos:
-            if todo_object.task == todo.task and todo_object.complete == False:
+            if todo_object.task == todo.task and not todo_object.complete:
                 raise Exception("You already have this task as incomplete in your Todo List")
         self.todos.append(todo)
 
     def incomplete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are not complete
-        incomplete_todos = [todo_object for todo_object in self.todos if todo_object.complete == False]
+        incomplete_todos = [todo_object for todo_object in self.todos if not todo_object.complete]
         return incomplete_todos
     
     def complete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are complete
-        complete_todos = [todo_object for todo_object in self.todos if todo_object.complete == True]
+        complete_todos = [todo_object for todo_object in self.todos if todo_object.complete]
         return complete_todos
 
     def give_up(self):
