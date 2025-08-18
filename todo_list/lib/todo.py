@@ -9,11 +9,17 @@ class Todo:
         # Side-effects:
         #   Sets the task property
         #   Sets the complete property to False
-        pass
+        if task == "":
+            raise Exception("You can't create a blank task")
+        if not isinstance(task,str):
+            raise Exception("Tasks must be created as strings")
+        
+        self.task = task
+        self.complete = False
 
     def mark_complete(self):
         # Returns:
         #   Nothing
         # Side-effects:
         #   Sets the complete property to True
-        pass
+        self.complete = True
