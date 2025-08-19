@@ -12,6 +12,13 @@ def test_best_entry_with_no_entry_raises_exception():
     error_message = str(e.value)
     assert error_message == "No entries"
 
+def test_list_contacts_with_no_entry_raises_exception():
+    diary = Diary()
+    with pytest.raises(Exception) as e:
+        diary.list_contacts()
+    error_message = str(e.value)
+    assert error_message == "No entries"
+
 def test_complete_with_no_entry_raises_exception():
     diary = Diary()
     with pytest.raises(Exception) as e:
