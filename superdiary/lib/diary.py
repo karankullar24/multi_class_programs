@@ -14,7 +14,10 @@ class Diary():
         #   entry: an instance of Experience, Todo or Contact
         # Side-effects:
         #   Adds the entry to the relevant property of the self object
+        if not (isinstance(entry,Experience) or isinstance(entry,Todo) or isinstance(entry,Contact)):
+            raise Exception ('The diary can only hold experiences, contacts or todos.')
         self.entries.append(entry)
+
 
     def all(self):
         # Returns:

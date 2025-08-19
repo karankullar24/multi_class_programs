@@ -25,3 +25,10 @@ def test_incomplete_with_no_entry_raises_exception():
         diary.incomplete()
     error_message = str(e.value)
     assert error_message == "No entries"
+
+def test_tru_to_add_non_object_to_diary():
+    diary = Diary()
+    with pytest.raises(Exception) as e:
+        diary.add(1)
+    error_message = str(e.value)
+    assert error_message == 'The diary can only hold experiences, contacts or todos.'
