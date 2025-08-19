@@ -31,4 +31,4 @@ def test_tru_to_add_non_object_to_diary():
     with pytest.raises(Exception) as e:
         diary.add(1)
     error_message = str(e.value)
-    assert error_message == 'The diary can only hold experiences, contacts or todos.'
+    assert error_message == "The diary can only hold experiences, contacts or todos."
