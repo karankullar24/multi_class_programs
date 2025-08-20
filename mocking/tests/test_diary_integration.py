@@ -16,15 +16,15 @@ def test_can_unlock_secret_diary():
     diary = Diary("My diary entry")
     secret_diary = SecretDiary(diary)
     secret_diary.unlock()
-    assert secret_diary.unlocked == False
+    assert secret_diary.unlocked == True
 
 def test_can_lock_secret_diary():
     diary = Diary("My diary entry")
     secret_diary = SecretDiary(diary)
     secret_diary.unlock()
-    assert secret_diary.unlocked == False
+    assert secret_diary.unlocked == True
     secret_diary.lock()
-    assert secret_diary.unlocked == True 
+    assert secret_diary.unlocked == False 
 
 def test_can_not_read_locked_diary():
     diary = Diary("My diary entry")
